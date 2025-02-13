@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 function NuevoEstudianteForm({ onAddhandleStudents }) {
   const [name, setName] = useState("");
@@ -45,5 +46,8 @@ function NuevoEstudianteForm({ onAddhandleStudents }) {
     </div>
   );
 }
+NuevoEstudianteForm.propTypes = {
+  onAddhandleStudents: PropTypes.func.isRequired,
+};
 
 export default NuevoEstudianteForm;

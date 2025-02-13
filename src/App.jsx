@@ -1,6 +1,5 @@
 // TODO: 1. Terminar el componente nuevaTareaForm.jsx
 
-
 import Header from "./components/Header";
 import NuevoEstudianteForm from "./components/nuevoEstudianteForm";
 import { useState } from "react";
@@ -9,7 +8,7 @@ import TaskList from "./components/TaskList";
 import Buttons from "./components/Buttons";
 import NuevaTareaForm from "./components/nuevaTareaForm";
 
-const tasks = [
+const initialTask = [
   {
     id: 1,
     AssignedStudent: "Luis Pison",
@@ -25,26 +24,6 @@ const tasks = [
     AssignedStudent: "Paulina Norambuena",
     title: "Pasear al perro",
     description: "Ponerle su correa y pasearlo",
-    estatus: true,
-    dueDate: "07-07-2021",
-    createdAt: "07-07-2021",
-    priority: "baja",
-  },
-  {
-    id: 3,
-    AssignedStudent: "Paulina Norambuena",
-    title: "Cambiar pañal de bebé",
-    description: "Limpiarlo bien, ponerle crema y colocar nuevo pañal",
-    estatus: true,
-    dueDate: "07-07-2021",
-    createdAt: "07-07-2021",
-    priority: "baja",
-  },
-  {
-    id: 4,
-    AssignedStudent: "Luis Pison",
-    title: "Comprar pan",
-    description: "Ir al super, ir a la sección de pan y comprar el pan 😊",
     estatus: true,
     dueDate: "07-07-2021",
     createdAt: "07-07-2021",
@@ -71,9 +50,14 @@ function App() {
   const [showList, setShowList] = useState(false);
   const [showTaskList, setShowTaskList] = useState(false);
   const [students, setStudents] = useState(initialStudentList);
+  const [task, setTask] = useState(initialTask);
 
   function handleAddStudents(student) {
     setStudents((prevStudents) => [...prevStudents, student]);
+  }
+
+  function handleAddTask(task) {
+    setTask((prevTask) => [...prevTask, task]);
   }
 
   return (
@@ -102,7 +86,7 @@ function App() {
           {showList && <StudentsList initialStudentList={students} />}
         </div>
         <div>
-          <NuevaTareaForm />
+          <NuevaTareaForm onAddTask={handleAddTask} />
         </div>
       </div>
       {showTaskList && (
@@ -114,7 +98,7 @@ function App() {
             Lista de tareas
           </h1>
           <div id="taskBar" className="grid-cols-4">
-            <TaskList task={tasks} />
+            <TaskList task={task} />
           </div>
         </div>
       )}
