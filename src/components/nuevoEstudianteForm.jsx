@@ -16,7 +16,7 @@ function NuevoEstudianteForm({ onAddhandleStudents }) {
   return (
     <div>
       <form
-        className="sm:flex items-center grid gap-3 bg-blue-200 p-4 rounded-lg shadow-md text-[0.8rem]"
+        className="sm:flex items-center grid gap-3 bg-blue-300 p-4 rounded-lg shadow-md text-[0.8rem]"
         onSubmit={handleSubmit}
       >
         <label className="text-gray-700 font-semibold">Nombre</label>

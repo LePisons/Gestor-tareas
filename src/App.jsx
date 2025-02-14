@@ -51,6 +51,7 @@ function App() {
   const [showTaskList, setShowTaskList] = useState(false);
   const [students, setStudents] = useState(initialStudentList);
   const [task, setTask] = useState(initialTask);
+  const [showTaskForm, setShowTaskForm] = useState(false);
 
   function handleAddStudents(student) {
     setStudents((prevStudents) => [...prevStudents, student]);
@@ -73,21 +74,30 @@ function App() {
               setShowList={setShowList}
               showTaskList={showTaskList}
               setShowTaskList={setShowTaskList}
+              setShowTaskForm={setShowTaskForm}
+              showTaskForm={showTaskForm}
             />
           </div>
           {isOpen && (
             <NuevoEstudianteForm onAddhandleStudents={handleAddStudents} />
           )}
         </div>
-        <div>
-          <h5 className="text-white text-bae text-center m-2 font p-1 shadow-lg rounded-3xl bg-gradient-to-r from-blue-500 to-purple-500">
-            Lista de Estudiantes
-          </h5>
-          {showList && <StudentsList initialStudentList={students} />}
-        </div>
-        <div>
-          <NuevaTareaForm onAddTask={handleAddTask} />
-        </div>
+        {showList && (
+          <div>
+            <h5 className="text-white text-bae text-center m-2 font p-1 shadow-lg rounded-3xl bg-gradient-to-r from-blue-500 to-purple-500">
+              Lista de Estudiantes
+            </h5>
+            <StudentsList initialStudentList={students} />
+          </div>
+        )}
+        {showTaskForm && (
+          <div>
+            <h5 className="text-white text-base text-center m-2 font p-1 shadow-lg rounded-3xl bg-gradient-to-r from-blue-500 to-purple-500">
+              Nueva Tarea 😊
+            </h5>
+            <NuevaTareaForm onAddTask={handleAddTask} />
+          </div>
+        )}
       </div>
       {showTaskList && (
         <div

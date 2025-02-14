@@ -35,10 +35,7 @@ function NuevaTareaForm({ onAddTask }) {
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col w-full">
-          <h5 className="text-white text-base text-center m-2 font p-1 shadow-lg rounded-3xl bg-gradient-to-r from-blue-500 to-purple-500">
-            Nueva Tarea 😊
-          </h5>
-          <div className="flex flex-col p-4 bg-cyan-100 rounded-lg">
+          <div className="flex flex-col p-4 bg-blue-200 rounded-lg">
             <label className="text-gray-700 font-semibold mb-2" htmlFor="title">
               Titulo de la tarea
             </label>

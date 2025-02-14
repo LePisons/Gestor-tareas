@@ -10,8 +10,6 @@ function StudentsList({ initialStudentList }) {
     </div>
   );
 }
-
-// Define prop types for StudentsList
 StudentsList.propTypes = {
   initialStudentList: PropTypes.arrayOf(
     PropTypes.shape({
